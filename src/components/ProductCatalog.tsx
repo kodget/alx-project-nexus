@@ -5,6 +5,8 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { fetchProducts, fetchCategories, clearError } from '@/store/slices/productSlice'
 import { ProductGrid, ProductFilter } from '@/components/product'
 import PriceFilter from '@/components/product/PriceFilter'
+import SearchBar from '@/components/product/SearchBar'
+import ResultsCount from '@/components/product/ResultsCount'
 import { filterAndSortProducts } from '@/lib/utils'
 
 export default function ProductCatalog() {
@@ -36,7 +38,14 @@ export default function ProductCatalog() {
           <PriceFilter />
         </div>
         <div className="flex-1">
+          <SearchBar />
           <ProductFilter />
+          <ResultsCount 
+            count={filteredProducts.length}
+            total={products.length}
+            searchQuery={searchQuery}
+            category={category}
+          />
           <ProductGrid
             products={filteredProducts}
             isLoading={isLoading}
