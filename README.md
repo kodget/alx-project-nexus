@@ -1,6 +1,6 @@
-# E-Commerce Product Catalog
+# Distinct Patterns - E-Commerce Platform
 
-> A dynamic, responsive e-commerce product catalog built with Next.js, TypeScript, and Redux Toolkit as part of the ALX ProDev Frontend Engineering Program.
+> A modern, full-stack e-commerce platform built with Next.js, React, and Sanity CMS as part of the ALX ProDev Frontend Engineering Program.
 
 ## 🚀 Live Demo
 
@@ -8,41 +8,46 @@
 
 ## 📋 Project Overview
 
-This project demonstrates real-world frontend development skills by building a complete e-commerce product catalog with advanced filtering, sorting, and navigation features.
+Distinct Patterns is a comprehensive e-commerce platform showcasing modern web development practices with a focus on user experience, performance, and scalability.
 
 ### Key Features
 
-- **🛍️ Product Display** - Dynamic product grid with detailed product cards
-- **🔍 Advanced Filtering** - Filter by category, price range, and search query
-- **📊 Smart Sorting** - Sort by name, price, and rating
-- **📱 Responsive Design** - Mobile-first approach with sticky navigation
-- **♾️ Dual Navigation** - Toggle between pagination and infinite scrolling
-- **⚡ Performance Optimized** - Memoized filtering and lazy loading
-- **🎨 Modern UI** - Clean design with Tailwind CSS
+- **🛍️ Product Catalog** - Dynamic product showcase with detailed views
+- **🛒 Shopping Cart** - Full cart functionality with quantity management
+- **💳 Payment Integration** - Secure payments with Paystack
+- **📱 Responsive Design** - Mobile-first approach with modern UI
+- **🎨 Interactive Components** - Smooth animations with Framer Motion
+- **🔍 Product Search** - Advanced filtering and search capabilities
+- **📊 Content Management** - Powered by Sanity CMS
 
 ## 🛠️ Tech Stack
 
-- **Framework:** Next.js 14 with App Router
-- **Language:** TypeScript
-- **State Management:** Redux Toolkit
-- **Styling:** Tailwind CSS
-- **API:** Fake Store API
+- **Frontend:** Next.js 15, React 18, TypeScript
+- **Styling:** Tailwind CSS, Radix UI Components
+- **Backend:** Sanity CMS
+- **Payments:** Paystack Integration
+- **Animations:** Framer Motion
+- **State Management:** React Context API
 - **Deployment:** Vercel
 
 ## 📁 Project Structure
 
 ```
-src/
+distinct-pattern/
 ├── app/                 # Next.js app router
+│   ├── about/          # About page
+│   ├── blog/           # Blog section
+│   ├── cart/           # Shopping cart
+│   ├── checkout/       # Checkout process
+│   └── products/       # Product pages
 ├── components/          # React components
-│   ├── layout/         # Header, Footer, Layout
-│   ├── product/        # Product-related components
-│   ├── providers/      # Redux provider
-│   └── ui/             # Reusable UI components
-├── hooks/              # Custom React hooks
-├── lib/                # Utility functions
-├── store/              # Redux store and slices
-└── types/              # TypeScript type definitions
+│   ├── cards/          # Product cards
+│   ├── ui/             # Reusable UI components
+│   └── [various]/      # Feature components
+├── context/            # React context providers
+├── sanity/             # Sanity CMS configuration
+├── public/             # Static assets
+└── styles/             # Global styles
 ```
 
 ## 🚀 Getting Started
@@ -51,13 +56,14 @@ src/
 
 - Node.js 18+ and npm
 - Git
+- Sanity account (for CMS)
 
 ### Installation
 
 1. **Clone the repository**
    ```bash
    git clone https://github.com/kodget/alx-project-nexus.git
-   cd alx-project-nexus
+   cd alx-project-nexus/distinct-pattern
    ```
 
 2. **Install dependencies**
@@ -65,12 +71,16 @@ src/
    npm install
    ```
 
-3. **Run development server**
+3. **Set up Sanity CMS**
+   - Create a Sanity project at [sanity.io](https://sanity.io)
+   - Update `sanity/sanityClient.js` with your project credentials
+
+4. **Run development server**
    ```bash
    npm run dev
    ```
 
-4. **Open your browser**
+5. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
 ### Build for Production
@@ -82,73 +92,48 @@ npm start
 
 ## 🎯 Features Deep Dive
 
-### Filtering & Sorting
-- **Category Filter:** Filter products by category
-- **Price Range:** Set minimum and maximum price limits
-- **Search:** Real-time search through product titles and descriptions
-- **Multi-Filter:** Combine multiple filters simultaneously
-- **Active Filters:** Visual display of applied filters with easy removal
+### E-Commerce Functionality
+- **Product Management:** Dynamic product catalog with categories
+- **Shopping Cart:** Add, remove, and modify cart items
+- **Checkout Process:** Streamlined checkout with payment integration
+- **User Experience:** Smooth animations and responsive design
 
-### Navigation Modes
-- **Pagination:** Traditional page-based navigation
-- **Infinite Scroll:** Seamless loading of more products on scroll
-- **View Toggle:** Switch between modes with state persistence
+### Content Management
+- **Sanity CMS:** Headless CMS for product and content management
+- **Dynamic Content:** Real-time content updates
+- **Image Optimization:** Sanity's built-in image optimization
 
 ### Performance Features
-- **Memoized Filtering:** Optimized product filtering with useMemo
-- **Intersection Observer:** Efficient infinite scroll implementation
-- **Image Optimization:** Next.js Image component for optimized loading
-- **Responsive Images:** Adaptive images for different screen sizes
+- **Next.js Optimization:** Automatic code splitting and optimization
+- **Image Optimization:** Next.js Image component with lazy loading
+- **SEO Friendly:** Meta tags and structured data
 
 ## 📱 Responsive Design
 
-- **Mobile-First:** Designed for mobile devices first
-- **Breakpoints:** Responsive across all device sizes
+- **Mobile-First:** Optimized for mobile devices
+- **Cross-Browser:** Compatible across all modern browsers
 - **Touch-Friendly:** Optimized for touch interactions
-- **Sticky Navigation:** Fixed header for easy access
-
-## 🔧 Development Process
-
-This project was built using a systematic 20-bit development approach:
-
-**Phase 1: Foundation (Bits 1-4)**
-- Project setup with Next.js, TypeScript, Tailwind
-- Component structure and TypeScript interfaces
-- Basic layout components
-
-**Phase 2: Core Components (Bits 5-8)**
-- Product card and grid components
-- Loading states and error handling
-
-**Phase 3: State Management (Bits 9-12)**
-- Redux store setup
-- Product and filter slices
-- API integration
-
-**Phase 4: Filtering & Sorting (Bits 13-16)**
-- Category and price filtering
-- Search functionality
-- Multi-filter logic
-
-**Phase 5: Navigation & Performance (Bits 17-20)**
-- Pagination component
-- Infinite scrolling
-- Responsive design
-- Deployment and documentation
+- **Accessibility:** WCAG compliant design patterns
 
 ## 🚀 Deployment
 
-This application is deployed on Vercel with automatic deployments from the main branch.
+This application can be deployed on Vercel, Netlify, or any Node.js hosting platform.
 
-### Deploy Your Own
+### Deploy to Vercel
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/kodget/alx-project-nexus)
 
-## 📊 Performance
+## 🔧 Configuration
 
-- **Lighthouse Score:** 95+ across all metrics
-- **Core Web Vitals:** Optimized for excellent user experience
-- **Bundle Size:** Optimized with Next.js automatic code splitting
+### Environment Variables
+
+Create a `.env.local` file:
+
+```env
+NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
+NEXT_PUBLIC_SANITY_DATASET=production
+PAYSTACK_PUBLIC_KEY=your_paystack_key
+```
 
 ## 🤝 Contributing
 
@@ -165,7 +150,8 @@ This project is part of the ALX ProDev Frontend Engineering Program.
 ## 🙏 Acknowledgments
 
 - **ALX ProDev Program** for the learning opportunity
-- **Fake Store API** for providing the product data
+- **Sanity** for the headless CMS platform
+- **Paystack** for payment processing
 - **Vercel** for hosting and deployment
 
 ---
