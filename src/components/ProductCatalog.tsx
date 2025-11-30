@@ -10,15 +10,30 @@ import ResultsCount from '@/components/product/ResultsCount'
 import ActiveFilters from '@/components/product/ActiveFilters'
 import { filterAndSortProducts } from '@/lib/utils'
 import { getActiveFilterCount } from '@/lib/filterUtils'
+import { Pagination } from '@/components/ui'
+import { setCurrentPage } from '@/store/slices/filterSlice'
 
 export default function ProductCatalog() {
   const dispatch = useAppDispatch()
   const { products, isLoading, error } = useAppSelector((state) => state.products)
-  const { category, sortBy, searchQuery, priceRange } = useAppSelector((state) => state.filters)
+  const { category, sortBy, searchQuery, priceRange, pagination } = useAppSelector((state) => state.filters)
 
   const filteredProducts = useMemo(() => {
     return filterAndSortProducts(products, category, sortBy, searchQuery, priceRange)
   }, [products, category, sortBy, searchQuery, priceRange])
+
+  const paginatedProducts = useMemo(() => {
+    const startIndex = (pagination.currentPage - 1) * pagination.itemsPerPage
+    const endIndex = startIndex + pagination.itemsPerPage
+    return filteredProducts.slice(startIndex, endIndex)
+  }, [filteredProducts, pagination.currentPage, pagination.itemsPerPage])
+
+  const totalPages = Math.ceil(filteredProducts.length / pagination.itemsPerPage)
+
+  const handlePageChange = (page: number) => {
+    dispatch(setCurrentPage(page))
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
   useEffect(() => {
     dispatch(fetchProducts())
@@ -50,10 +65,15 @@ export default function ProductCatalog() {
             category={category}
           />
           <ProductGrid
-            products={filteredProducts}
+            products={paginatedProducts}
             isLoading={isLoading}
             error={error}
             onRetry={handleRetry}
+          />
+          <Pagination
+            currentPage={pagination.currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
           />
         </div>
       </div>
