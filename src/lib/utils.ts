@@ -7,26 +7,18 @@ export function filterAndSortProducts(
   searchQuery: string,
   priceRange: { min: number; max: number }
 ): Product[] {
-  let filtered = [...products]
+  if (!products.length) return []
 
-  // Filter by category
-  if (category) {
-    filtered = filtered.filter((product) => product.category === category)
-  }
-
-  // Filter by price range
-  filtered = filtered.filter((product) => 
-    product.price >= priceRange.min && product.price <= priceRange.max
-  )
-
-  // Filter by search query
-  if (searchQuery) {
-    const query = searchQuery.toLowerCase()
-    filtered = filtered.filter((product) =>
-      product.title.toLowerCase().includes(query) ||
-      product.description.toLowerCase().includes(query)
-    )
-  }
+  let filtered = products.filter((product) => {
+    // Apply all filters in a single pass for better performance
+    const matchesCategory = !category || product.category === category
+    const matchesPrice = product.price >= priceRange.min && product.price <= priceRange.max
+    const matchesSearch = !searchQuery || 
+      product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      product.description.toLowerCase().includes(searchQuery.toLowerCase())
+    
+    return matchesCategory && matchesPrice && matchesSearch
+  })
 
   // Sort products
   filtered.sort((a, b) => {

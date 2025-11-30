@@ -7,7 +7,9 @@ import { ProductGrid, ProductFilter } from '@/components/product'
 import PriceFilter from '@/components/product/PriceFilter'
 import SearchBar from '@/components/product/SearchBar'
 import ResultsCount from '@/components/product/ResultsCount'
+import ActiveFilters from '@/components/product/ActiveFilters'
 import { filterAndSortProducts } from '@/lib/utils'
+import { getActiveFilterCount } from '@/lib/filterUtils'
 
 export default function ProductCatalog() {
   const dispatch = useAppDispatch()
@@ -40,6 +42,7 @@ export default function ProductCatalog() {
         <div className="flex-1">
           <SearchBar />
           <ProductFilter />
+          <ActiveFilters />
           <ResultsCount 
             count={filteredProducts.length}
             total={products.length}
