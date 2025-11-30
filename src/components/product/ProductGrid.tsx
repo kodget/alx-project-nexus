@@ -1,13 +1,20 @@
 import { Product } from '@/types'
 import ProductCard from './ProductCard'
 import { ProductCardSkeleton } from '@/components/ui/Skeleton'
+import { ErrorMessage } from '@/components/ui'
 
 interface ProductGridProps {
   products: Product[]
   isLoading?: boolean
+  error?: string
+  onRetry?: () => void
 }
 
-export default function ProductGrid({ products, isLoading }: ProductGridProps) {
+export default function ProductGrid({ products, isLoading, error, onRetry }: ProductGridProps) {
+  if (error) {
+    return <ErrorMessage message={error} onRetry={onRetry} />
+  }
+
   if (isLoading) {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
