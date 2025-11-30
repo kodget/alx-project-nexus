@@ -21,14 +21,14 @@ export default function ProductFilter() {
   }
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow-sm border mb-6">
-      <div className="flex flex-wrap gap-4 items-center">
-        <div className="flex items-center gap-2">
-          <label className="text-sm font-medium text-gray-700">Category:</label>
+    <div className="bg-white p-3 sm:p-4 rounded-lg shadow-sm border">
+      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 sm:items-center">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+          <label className="text-sm font-medium text-gray-700 whitespace-nowrap">Category:</label>
           <select
             value={category}
             onChange={(e) => handleCategoryChange(e.target.value)}
-            className="border border-gray-300 rounded px-3 py-1 text-sm"
+            className="border border-gray-300 rounded px-3 py-2 text-sm w-full sm:w-auto"
           >
             <option value="">All Categories</option>
             {categories.map((cat) => (
@@ -39,12 +39,12 @@ export default function ProductFilter() {
           </select>
         </div>
 
-        <div className="flex items-center gap-2">
-          <label className="text-sm font-medium text-gray-700">Sort by:</label>
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+          <label className="text-sm font-medium text-gray-700 whitespace-nowrap">Sort by:</label>
           <select
             value={sortBy}
             onChange={(e) => handleSortChange(e.target.value)}
-            className="border border-gray-300 rounded px-3 py-1 text-sm"
+            className="border border-gray-300 rounded px-3 py-2 text-sm w-full sm:w-auto"
           >
             <option value="name">Name</option>
             <option value="price-asc">Price: Low to High</option>
@@ -55,7 +55,7 @@ export default function ProductFilter() {
 
         <button
           onClick={handleReset}
-          className="bg-gray-500 text-white px-3 py-1 rounded text-sm hover:bg-gray-600 transition-colors"
+          className="bg-gray-500 text-white px-4 py-2 rounded text-sm hover:bg-gray-600 transition-colors w-full sm:w-auto"
         >
           Reset
         </button>

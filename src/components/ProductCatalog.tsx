@@ -69,25 +69,33 @@ export default function ProductCatalog() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-center mb-8">
+    <div className="container mx-auto px-4 py-4 sm:py-8">
+      <h1 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8">
         E-Commerce Product Catalog
       </h1>
-      <div className="flex flex-col lg:flex-row gap-6">
-        <div className="lg:w-64">
-          <PriceFilter />
+      <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
+        <div className="lg:w-64 space-y-4">
+          <div className="lg:sticky lg:top-24">
+            <PriceFilter />
+          </div>
         </div>
-        <div className="flex-1">
-          <SearchBar />
-          <ProductFilter />
-          <ActiveFilters />
-          <ViewModeToggle />
-          <ResultsCount 
-            count={filteredProducts.length}
-            total={products.length}
-            searchQuery={searchQuery}
-            category={category}
-          />
+        <div className="flex-1 min-w-0">
+          <div className="space-y-4">
+            <SearchBar />
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+              <div className="flex-1">
+                <ProductFilter />
+              </div>
+              <ViewModeToggle />
+            </div>
+            <ActiveFilters />
+            <ResultsCount 
+              count={filteredProducts.length}
+              total={products.length}
+              searchQuery={searchQuery}
+              category={category}
+            />
+          </div>
           <ProductGrid
             products={displayedProducts}
             isLoading={isLoading}
@@ -108,7 +116,7 @@ export default function ProductCatalog() {
                 </div>
               )}
               {!hasMore && filteredProducts.length > 12 && (
-                <div className="text-center py-4 text-gray-500">
+                <div className="text-center py-4 text-gray-500 text-sm">
                   All products loaded
                 </div>
               )}
