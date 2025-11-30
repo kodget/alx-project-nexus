@@ -4,7 +4,8 @@ export function filterAndSortProducts(
   products: Product[],
   category: string,
   sortBy: string,
-  searchQuery: string
+  searchQuery: string,
+  priceRange: { min: number; max: number }
 ): Product[] {
   let filtered = [...products]
 
@@ -12,6 +13,11 @@ export function filterAndSortProducts(
   if (category) {
     filtered = filtered.filter((product) => product.category === category)
   }
+
+  // Filter by price range
+  filtered = filtered.filter((product) => 
+    product.price >= priceRange.min && product.price <= priceRange.max
+  )
 
   // Filter by search query
   if (searchQuery) {
