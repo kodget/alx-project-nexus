@@ -1,9 +1,10 @@
 const CACHE_NAME = 'distinct-patterns-pwa-v1';
 const urlsToCache = [
   '/',
-  '/static/js/bundle.js',
-  '/static/css/main.css',
-  '/manifest.json'
+  '/manifest.json',
+  '/offline.html',
+  '/_next/static/css/',
+  '/_next/static/js/'
 ];
 
 self.addEventListener('install', (event) => {

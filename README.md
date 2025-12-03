@@ -4,7 +4,9 @@
 
 ## 🚀 Live Demo
 
-[View Live Application](https://your-app-url.vercel.app)
+[View Live Application](https://distinct-patterns.vercel.app)
+
+> **Status:** ✅ Production Ready - Deployed on Vercel
 
 ## 📋 Project Overview
 
@@ -122,6 +124,32 @@ This application can be deployed on Vercel, Netlify, or any Node.js hosting plat
 ### Deploy to Vercel
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/kodget/alx-project-nexus)
+
+#### Quick Deploy Steps:
+
+1. **Fork this repository**
+2. **Connect to Vercel:**
+   ```bash
+   npm i -g vercel
+   cd distinct-pattern
+   vercel --prod
+   ```
+3. **Set environment variables in Vercel dashboard**
+4. **Deploy:** Automatic deployment on git push
+
+#### Manual Deployment:
+
+```bash
+# Run the deployment script
+chmod +x deploy.sh
+./deploy.sh
+
+# Or manually:
+cd distinct-pattern
+npm install
+npm run build
+npm start
+```
 
 ## 🔧 Configuration
 

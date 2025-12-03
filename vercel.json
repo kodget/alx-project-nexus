@@ -1,6 +1,20 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": ".next",
-  "framework": "nextjs",
-  "regions": ["iad1"]
+  "version": 2,
+  "builds": [
+    {
+      "src": "distinct-pattern/package.json",
+      "use": "@vercel/next",
+      "config": {
+        "projectSettings": {
+          "framework": "nextjs"
+        }
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/distinct-pattern/$1"
+    }
+  ]
 }
